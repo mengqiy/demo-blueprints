@@ -9,14 +9,14 @@ metadata:
 upstream:
   type: git
   git:
-    repo: https://github.com/mengqiy/demo-blueprints
+    repo: 'https://github.com/mengqiy/demo-blueprints'
     directory: /basens
     ref: main
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
-    repo: https://github.com/mengqiy/demo-blueprints
+    repo: 'https://github.com/mengqiy/demo-blueprints'
     directory: /basens
     ref: main
     commit: 1b64f99da2965a6e6fd1ec134c16441f6028bcd2
@@ -26,8 +26,7 @@ info:
   - tenant
 pipeline:
   mutators:
-  - image: gcr.io/cad-demo-sdk/set-namespace:latest
+  - image: 'gcr.io/cad-demo-sdk/set-namespace:latest'
   validators:
-  - image: gcr.io/kpt-fn/kubeval:v0.1
-    configMap:
-      ignore_missing_schemas: 'true'
+  - image: 'gcr.io/cad-demo-sdk/validate-rolebinding:latest'
+  - image: 'gcr.io/cad-demo-sdk/validate-resourcequota:latest'
